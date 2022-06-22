@@ -1,5 +1,12 @@
 import { useState } from "react";
 import { createMemoService } from "../services/memoService";
+import { TextField, Container } from "@mui/material";
+import { styled } from "@mui/material/styles";
+
+const FormContainer = styled(Container)`
+  width: 100%;
+  margin-left: 0.5rem;
+`;
 
 const InputForm = () => {
   const [userInput, setUserInput] = useState({
@@ -24,18 +31,19 @@ const InputForm = () => {
   };
 
   return (
-    <>
+    <FormContainer>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="content">Enter what you need to remember</label>
-        <input
+        <TextField
+          id="standard-basic"
+          label="Your Ideas"
+          variant="standard"
           name="memo"
           type="text"
           value={userInput.memo}
           onChange={handleChange}
         />
-        <button type="submit">Save</button>
       </form>
-    </>
+    </FormContainer>
   );
 };
 

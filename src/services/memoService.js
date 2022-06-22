@@ -2,7 +2,7 @@ import memoAPI from "../config/api";
 
 export const getMemosService = async () => {
   const response = await memoAPI.get("/memos");
-  console.log("memoService - get", response.data);
+  // console.log("memoService - get", response.data);
   return response.data;
 };
 
