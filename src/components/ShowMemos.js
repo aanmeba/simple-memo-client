@@ -19,14 +19,15 @@ const ShowMemos = () => {
 
   useEffect(() => {
     getMemosService()
-      .then((data) => setMemoList(data))
+      .then((data) => setMemoList(data.reverse()))
       .catch((err) => console.log(err));
-  }, []);
+  }, [memoList]);
 
   return (
     <Wrapper>
       {memoList.map((memoObj, key) => (
         <>
+          <Divider orientation="vertical" variant="middle" flexItem />
           <CardItem>
             <Typography wrap>{memoObj.memo}</Typography>
           </CardItem>
