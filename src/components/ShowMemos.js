@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getMemosService } from "../services/memoService";
+import { deleteMemoService, getMemosService } from "../services/memoService";
 import { Typography, Box, Divider, Container } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
@@ -21,15 +21,22 @@ const ShowMemos = () => {
     getMemosService()
       .then((data) => setMemoList(data.reverse()))
       .catch((err) => console.log(err));
-  }, [memoList]);
+  }, []);
+
+  const handleClick = (id) => {
+    console.log("id", id);
+    deleteMemoService(id);
+  };
 
   return (
     <Wrapper>
       {memoList.map((memoObj, key) => (
         <>
           <Divider orientation="vertical" variant="middle" flexItem />
-          <CardItem>
-            <Typography wrap>{memoObj.memo}</Typography>
+          <CardItem key={key}>
+            <Typography wrap onClick={() => handleClick(memoObj._id)}>
+              {memoObj.memo}
+            </Typography>
           </CardItem>
           <Divider orientation="vertical" variant="middle" flexItem />
         </>
