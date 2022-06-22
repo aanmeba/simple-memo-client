@@ -1,6 +1,18 @@
 import { useEffect, useState } from "react";
-import { deleteMemoService, getMemosService } from "../services/memoService";
-import { Typography, Box, Divider, Container } from "@mui/material";
+import {
+  deleteMemoService,
+  editMemoService,
+  getMemosService,
+} from "../services/memoService";
+import {
+  Typography,
+  Stack,
+  Box,
+  Divider,
+  Container,
+  Chip,
+} from "@mui/material";
+import DoneIcon from "@mui/icons-material/Done";
 import { styled } from "@mui/material/styles";
 
 const Wrapper = styled(Container)`
@@ -24,7 +36,12 @@ const ShowMemos = () => {
   }, []);
 
   const handleClick = (id) => {
-    console.log("id", id);
+    console.log("click - id", id);
+    // editMemoService(id);
+  };
+
+  const handleDelete = (id) => {
+    console.log("delete - id", id);
     deleteMemoService(id);
   };
 
@@ -34,9 +51,19 @@ const ShowMemos = () => {
         <>
           <Divider orientation="vertical" variant="middle" flexItem />
           <CardItem key={key}>
-            <Typography wrap onClick={() => handleClick(memoObj._id)}>
+            <Stack direction="row" spacing={1}>
+              <Chip
+                label={memoObj.memo}
+                variant="outlined"
+                onClick={() => handleClick(memoObj._id)}
+                onDelete={() => handleDelete(memoObj._id)}
+                deleteIcon={<DoneIcon />}
+              />
+
+              {/* <Typography wrap onClick={() => handleClick(memoObj._id)}>
               {memoObj.memo}
-            </Typography>
+            </Typography> */}
+            </Stack>
           </CardItem>
           <Divider orientation="vertical" variant="middle" flexItem />
         </>

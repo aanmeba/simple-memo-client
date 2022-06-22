@@ -16,4 +16,10 @@ export const deleteMemoService = async (id) => {
   console.log("memoService - delete - id", id);
   const response = await memoAPI.delete(`/memos/${id}`, id);
   console.log("memoService - delete", response.data);
+  return response.data;
+};
+
+export const editMemoService = async (id, memo) => {
+  const response = await memoAPI.put(`/memos/${id}`, memo);
+  console.log("memoService - edit", response.data);
 };
