@@ -9,9 +9,10 @@ const FormContainer = styled(Container)`
 `;
 
 const InputForm = () => {
-  const [userInput, setUserInput] = useState({
+  const initialState = {
     memo: "",
-  });
+  };
+  const [userInput, setUserInput] = useState(initialState);
 
   const handleChange = (e) => {
     setUserInput({
@@ -25,9 +26,13 @@ const InputForm = () => {
 
     createMemoService(userInput)
       .then(() => {
-        window.location.reload(false);
+        clearInput();
       })
       .catch((err) => console.log(err));
+  };
+
+  const clearInput = () => {
+    setUserInput(initialState);
   };
 
   return (
