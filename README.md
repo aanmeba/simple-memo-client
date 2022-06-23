@@ -30,3 +30,8 @@ This is a simple memo app in web version inspired by [Blink](https://apps.apple.
 - Run this command line in your terminal, `npm install` to install the dependencies defined in package.json
 - Execute the server using `npm start` and it will run your localhost port 3000
 - To get the stored data in MongoDB, please clone [server-side repo](https://github.com/aanmeba/simple-memo-server) separately and follow the instruction
+
+## Room for improvement
+
+- Refresh the page when create or delete a memo
+- Edit field could appear the place where the memo is, not a form of the popup
