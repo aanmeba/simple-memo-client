@@ -34,4 +34,5 @@ This is a simple memo app in web version inspired by [Blink](https://apps.apple.
 ## Room for improvement
 
 - Refresh the page when create or delete a memo
+  - Since it reaches the DB, refreshing the page seems inevitable, but try other ways
 - Edit field could appear the place where the memo is, not a form of the popup
