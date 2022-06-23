@@ -1,6 +1,6 @@
 # Simple Memo - client side
 
-This is a simple memo app in web version inspired by ![Blink](https://apps.apple.com/us/app/blink-quick-memo-widget/id1182856129)
+This is a simple memo app in web version inspired by [Blink](https://apps.apple.com/us/app/blink-quick-memo-widget/id1182856129)
 
 ## Features
 
@@ -24,4 +24,4 @@ This is a simple memo app in web version inspired by ![Blink](https://apps.apple
 - Clone this repo
 - Run this command line in your terminal, `npm install` to install the dependencies defined in package.json
 - Execute the server using `npm start` and it will run your localhost port 3000
-- To get the stored data in MongoDB, please clone server-side repo separately and follow the instruction
+- To get the stored data in MongoDB, please clone [server-side repo](https://github.com/aanmeba/simple-memo-server) separately and follow the instruction
