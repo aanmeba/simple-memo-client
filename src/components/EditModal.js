@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { TextField, Box, Modal, Chip } from "@mui/material";
 import { editMemoService, deleteMemoService } from "../services/memoService";
-import DoneIcon from "@mui/icons-material/Done";
+import CloseIcon from "@mui/icons-material/Close";
 
 const style = {
   position: "absolute",
@@ -48,7 +48,7 @@ const EditModal = (data) => {
         variant="outlined"
         onClick={handleOpen}
         onDelete={() => handleDelete(newMemo._id)}
-        deleteIcon={<DoneIcon />}
+        deleteIcon={<CloseIcon />}
       />
       <Modal
         open={open}
