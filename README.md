@@ -2,6 +2,11 @@
 
 This is a simple memo app in web version inspired by [Blink](https://apps.apple.com/us/app/blink-quick-memo-widget/id1182856129)
 
+## Preview
+
+![](./asset/simple_client.png)
+![](./asset/simple_client_edit.png)
+
 ## Features
 
 - Create, read, edit, and delete memos
