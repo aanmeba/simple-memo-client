@@ -40,7 +40,7 @@ const InputForm = () => {
       <form onSubmit={handleSubmit}>
         <TextField
           id="standard-basic"
-          label="Your Ideas"
+          label="New memo"
           variant="standard"
           name="memo"
           type="text"
