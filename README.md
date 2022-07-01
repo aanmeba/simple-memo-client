@@ -2,6 +2,10 @@
 
 This is a simple memo app in web version inspired by [Blink](https://apps.apple.com/us/app/blink-quick-memo-widget/id1182856129)
 
+## Demo
+
+👉 Here's the deployed app: [front end](https://simple-memo.netlify.app/)
+
 ## Preview
 
 ![](./asset/simple_client.png)
