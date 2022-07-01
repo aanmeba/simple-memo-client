@@ -25,3 +25,5 @@ yarn-error.log*
 # working
 /src/utils
 /src/archive
+
+.env
