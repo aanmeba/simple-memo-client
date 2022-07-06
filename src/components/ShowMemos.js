@@ -1,19 +1,8 @@
 import { useEffect, useState } from "react";
 import { getMemosService } from "../services/memoService";
-import { Stack, Box, Container } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { Stack } from "@mui/material";
+import { CardItem, Wrapper } from "./StyledMui";
 import EditModal from "./EditModal";
-
-const Wrapper = styled(Container)`
-  width: 100%;
-  margin-top: 2rem;
-  display: flex;
-  flex-wrap: wrap;
-`;
-
-const CardItem = styled(Box)`
-  padding: 0.5rem;
-`;
 
 const ShowMemos = () => {
   const [memoList, setMemoList] = useState([]);

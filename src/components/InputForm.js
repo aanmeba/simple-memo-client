@@ -1,12 +1,7 @@
 import { useState } from "react";
 import { createMemoService } from "../services/memoService";
-import { TextField, Container } from "@mui/material";
-import { styled } from "@mui/material/styles";
-
-const FormContainer = styled(Container)`
-  width: 100%;
-  margin-left: 0.5rem;
-`;
+import { TextField } from "@mui/material";
+import { FormContainer } from "./StyledMui";
 
 const InputForm = () => {
   const initialState = {
