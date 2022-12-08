@@ -1,24 +1,26 @@
+import * as React from "react";
 import { useState } from "react";
-import { createMemoService } from "../services/memoService";
+import { createMemoService } from "../services/memo_service";
 import { TextField } from "@mui/material";
-import { FormContainer } from "./StyledMui";
+import { FormContainer } from "./styled_mui";
+import { SingleMemo } from "./edit_modal";
 
 const InputForm = () => {
-  const initialState = {
+  const initialState: SingleMemo = {
     memo: "",
   };
-  const [userInput, setUserInput] = useState(initialState);
+  const [userInput, setUserInput] = useState<SingleMemo>(initialState);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserInput({
       ...userInput,
-      [e.target.name]: e.target.value,
+      [e.currentTarget.name]: e.currentTarget.value,
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
-
+    console.log(userInput);
     createMemoService(userInput)
       .then(() => {
         clearInput();

@@ -1,31 +1,41 @@
+import * as React from "react";
 import { useState } from "react";
 import { TextField, Box, Modal, Chip } from "@mui/material";
-import { editMemoService, deleteMemoService } from "../services/memoService";
+import { editMemoService, deleteMemoService } from "../services/memo_service";
 import CloseIcon from "@mui/icons-material/Close";
-import { style } from "./StyledMui";
+import { style } from "./styled_mui";
 
-const EditModal = (data) => {
-  const [newMemo, setNewMemo] = useState({
-    _id: data.data._id,
-    memo: data.data.memo,
+export interface SingleMemo {
+  _id?: string;
+  memo: string;
+}
+
+type MemoType = {
+  data: SingleMemo;
+};
+
+export const EditModal = (data: MemoType) => {
+  const [newMemo, setNewMemo] = useState<SingleMemo>({
+    _id: data.data?._id,
+    memo: data.data?.memo,
   });
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewMemo({
       memo: e.target.value,
     });
   };
 
-  const handleEdit = (e) => {
+  const handleEdit = (e: any) => {
     e.preventDefault();
-    editMemoService(data.data._id, newMemo);
+    editMemoService(data.data?._id, newMemo);
     handleClose();
   };
 
-  const handleDelete = (id) => {
+  const handleDelete = (id: string) => {
     deleteMemoService(id);
     // window.location.reload(false);
   };
@@ -36,7 +46,7 @@ const EditModal = (data) => {
         label={newMemo.memo}
         variant="outlined"
         onClick={handleOpen}
-        onDelete={() => handleDelete(newMemo._id)}
+        onDelete={() => handleDelete(newMemo?._id ?? "")}
         deleteIcon={<CloseIcon />}
       />
       <Modal
@@ -53,7 +63,7 @@ const EditModal = (data) => {
               variant="standard"
               name="edit"
               type="text"
-              value={newMemo.memo}
+              value={newMemo?.memo}
               onChange={handleChange}
             />
           </form>
@@ -62,5 +72,3 @@ const EditModal = (data) => {
     </>
   );
 };
-
-export default EditModal;
